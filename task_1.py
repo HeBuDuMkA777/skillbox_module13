@@ -14,3 +14,31 @@ print('Задача 1. Урок информатики 2')
 # Пример 2
 # Введите число: 0.0012
 # Формат плавающей точки: x = 1.2 * 10 ** -3
+
+def find_ab(Float_num):
+    degree_counter = 0
+    if Float_num >= 10:
+        while Float_num > 10:
+            Float_num /= 10
+            degree_counter += 1
+        return Float_num, degree_counter
+    elif Float_num < 1:
+        while Float_num < 1:
+            Float_num *= 10
+            degree_counter -= 1
+        return round(Float_num, 1), degree_counter
+    else:
+        degree_counter = 0
+        return int(Float_num), degree_counter
+    
+def new_num():
+    num = float(input("Введите число: "))
+    if num <= 0:
+        print("Число должно быть > 0.")
+        return new_num()
+    return num
+
+
+result_a, result_b = find_ab(new_num())
+
+print(f'Формат плавающей точки: x = {result_a} * 10 ** {result_b}')
