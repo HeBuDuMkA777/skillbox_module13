@@ -17,3 +17,20 @@ print('Задача 5. Маятник')
 # Введите начальную амплитуду: 1
 # Введите амплитуду остановки: 0.1
 # Маятник считается остановившимся через 27 колебаний
+
+def oscillation(start, stop):
+    attenuation = 1 - 8.4e-2
+    temp = start
+    oscillation_counter = 0
+    while temp > stop:
+        temp *= attenuation
+        oscillation_counter += 1
+    return oscillation_counter
+
+
+def enter_data():
+    start_amplitude = float(input("Введите начальную амплитуду: "))
+    stop_amplitude = float(input("Введите амплитуду остановки: "))
+    return start_amplitude, stop_amplitude
+
+print(f'Маятник считается остановившимся через {oscillation(*enter_data())} колебаний')
