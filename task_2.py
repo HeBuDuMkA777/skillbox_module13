@@ -18,3 +18,19 @@ print('Задача 2. Функция максимума')
 # Введите число: 1
 # Введите число: 23
 # Самое большое число: 23
+
+def new_num():
+    first_num, second_num, third_num = int(input("Введите число: ")), int(input("Введите число: ")), int(input("Введите число: "))
+    return first_num, second_num, third_num
+
+def maximum_of_two(first_num, second_num):
+    if first_num > second_num:
+        return first_num
+    else:
+        return second_num
+    
+def maximum_of_three(first_num, second_num, third_num):
+    first_comparison = maximum_of_two(first_num, second_num)
+    return maximum_of_two(first_comparison, third_num)
+
+print(f'Самое большое число: {maximum_of_three(*new_num())}') #вот эта звёздочка перед new_num заставила меня попотеть. Что-то я пропустил этот момент про распаковку аргументов
