@@ -9,3 +9,17 @@ print('Задача 3. Число наоборот')
 
 # Первое число наоборот: 201
 # Второе число наоборот: 321
+
+def new_nums():
+    first_num, second_num = int(input("Введите первое число: ")), int(input("Введите второе число: "))
+    return first_num, second_num
+
+def reverse_num(first_num, second_num):
+    first_num, second_num = str(first_num), str(second_num)
+    first_num, second_num = int(first_num[-1::-1]), int(second_num[-1::-1])
+    return(first_num, second_num)
+
+first_result, second_result = reverse_num(*new_nums())
+
+print("Первое число наоборот:", first_result)
+print("Второе число наоборот:", second_result)
